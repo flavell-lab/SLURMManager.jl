@@ -1,0 +1,4 @@
+name = "SLURMManager"
+uuid = "a857683d-e7a2-4b6b-86d4-d9114830fd67"
+authors = ["Jungsoo Kim <jungsoo@mit.edu>"]
+version = "0.1.0"
