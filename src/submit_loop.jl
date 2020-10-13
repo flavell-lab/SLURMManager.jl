@@ -48,7 +48,7 @@ function submit_scripts!(dict_jobs::Dict{String, SLURMJob}; path_jobdb::String,
                 job.submitted = true
                 q_submit_ok = true
                 verbose &&
-                    println_dt("job $(basename(path_sh)) submitted id=$jobid")
+                    println_dt("$(basename(job.path_sh)) submitted id=$jobid")
             catch
                 # sbatch failed. trying again after waiting
                 n_attempt += 1
