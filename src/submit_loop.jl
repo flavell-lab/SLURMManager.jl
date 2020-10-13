@@ -4,7 +4,7 @@ function submit_scripts(path_txt; verbose::Bool=true)
     path_jobdb = joinpath(path_root, name_jobdb)
 
     if isfile(path_jobdb)
-        dict_jobs = JLD.load(path_jobdb)
+        @load path_jobdb dict_jobs
     else
         script_path_list = read_script_paths(path_txt)
         dict_jobs = OrderedDict{String, SLURMJob}()
@@ -58,7 +58,7 @@ function submit_scripts!(dict_jobs::OrderedDict{String, SLURMJob};
             end
 
             # write job db
-            JLD.save(path_jobdb, dict_jobs)
+            @load path_jobdb dict_jobs
         end
 
         if n_attempt == MAX_ATTEMPT
