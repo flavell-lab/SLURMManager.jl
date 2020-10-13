@@ -26,6 +26,7 @@ Example `2020-10-12 sbatch submit.sh` (make sure to change `--job-name`, `--outp
 
 julia -e "using SLURMManager; submit_scripts("path_to_your_script_list/2020-10-12 sbatch manifest.txt")
 ```
+This requires minimal computing power, so there's no need to increase the num CPU, RAM, etc.
 
 ### 3. Submit the manager sbatch script
 ```bash
