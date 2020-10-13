@@ -36,7 +36,7 @@ function submit_scripts!(dict_jobs::Dict{String, SLURMJob}; path_jobdb::String,
         while !(q_submit_ok) && (n_attempt < MAX_ATTEMPT)
             # wait until queue is not full
             while !(squeue_n_pending(USER) + squeue_n_running(USER) +
-                n_array < MAX_JOBS_IN_QUEUE)
+                n_array <= MAX_JOBS_IN_QUEUE)
                 # queue is too full. checking again after waiting
                 sleep(TIME_CHECK_EVERY)
             end
