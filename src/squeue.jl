@@ -4,8 +4,8 @@
 Parse str result from pipeline to Int
 """
 function run_parse_int(pipe)
-    str_ = readchomp(pipe, String)
-    parse(Int, str_)
+    str_ = read(pipe, String)
+    parse(Int, chomp(str_))
 end
 
 """
