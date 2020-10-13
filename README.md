@@ -31,5 +31,10 @@ julia -e "using SLURMManager; submit_scripts("path_to_your_script_list/2020-10-1
 ```bash
 sbatch 2020-10-12 sbatch submit.sh
 ```
+
+### Note
+- jobs will be submitted in the order defined in your script list file  
+- each time a job is succesfully submitted, it saves a log so that the same job won't be resubmitted (e.g. if the manager sbatch task is intruppted and requeued, it continues with previously unsubmitted jobs)
+
 ## Notification feature
 Doc TBD
