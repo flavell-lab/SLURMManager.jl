@@ -1,6 +1,6 @@
 function submit_scripts(path_txt; verbose::Bool=true)
     path_root = splitdir(path_txt)[1]
-    name_jobdb = splitext(basename(path_txt))[1] * ".jld"
+    name_jobdb = splitext(basename(path_txt))[1] * ".jld2"
     path_jobdb = joinpath(path_root, name_jobdb)
 
     if isfile(path_jobdb)
@@ -58,7 +58,7 @@ function submit_scripts!(dict_jobs::OrderedDict{String, SLURMJob};
             end
 
             # write job db
-            @load path_jobdb dict_jobs
+            @save path_jobdb dict_jobs
         end
 
         if n_attempt == MAX_ATTEMPT
