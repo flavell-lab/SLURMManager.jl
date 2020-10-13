@@ -1,6 +1,6 @@
 module SLURMManager
 
-using Dates, JLD
+using Dates, JLD, DataStructures
 
 USER = ENV["USER"]
 TIME_CHECK_EVERY = 600 # seconds

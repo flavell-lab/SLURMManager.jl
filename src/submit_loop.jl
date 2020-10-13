@@ -16,8 +16,8 @@ function submit_scripts(path_txt; verbose::Bool=true)
     submit_scripts!(dict_jobs, path_jobdb=path_jobdb, verbose=verbose)
 end
 
-function submit_scripts!(dict_jobs::Dict{String, SLURMJob}; path_jobdb::String,
-    verbose::Bool=true)
+function submit_scripts!(dict_jobs::OrderedDict{String, SLURMJob};
+    path_jobdb::String, verbose::Bool=true)
     list_key_submit = []
     for (k_, v_) = dict_jobs
         if !v_.submitted
