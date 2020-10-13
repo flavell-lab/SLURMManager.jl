@@ -7,7 +7,7 @@ function submit_scripts(path_txt; verbose::Bool=true)
         dict_jobs = JLD.load(path_jobdb)
     else
         script_path_list = read_script_paths(path_txt)
-        dict_jobs = Dict{String, SLURMJob}()
+        dict_jobs = OrderedDict{String, SLURMJob}()
         for path_script = script_path_list
             dict_jobs[path_script] = SLURMJob(path_script)
         end
