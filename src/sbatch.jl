@@ -12,7 +12,7 @@ Read and verify list of .sh sbatch file paths from a txt file
 function read_script_paths(path_txt)
     script_path_str = read_txt(path_txt)
 
-    script_path_list = split(script_path_str, "\n")[1:end-1]
+    script_path_list = string.(split(script_path_str, "\n")[1:end-1])
 
     # check if they exist
     for f_ = script_path_list
