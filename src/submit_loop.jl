@@ -13,7 +13,7 @@ function submit_scripts(path_txt; verbose::Bool=true)
         end
     end
 
-    submit_scripts!(dict_jobs, path_jobdb, verbose=verbose)
+    submit_scripts!(dict_jobs, path_jobdb=path_jobdb, verbose=verbose)
 end
 
 function submit_scripts!(dict_jobs::Dict{String, SLURMJob}; path_jobdb::String,
