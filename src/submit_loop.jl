@@ -1,6 +1,6 @@
 function submit_scripts(path_txt; verbose::Bool=true)
     path_root = splitdir(path_txt)[1]
-    name_jobdb = splitext(basename(path_txt))[1] + ".jld"
+    name_jobdb = splitext(basename(path_txt))[1] * ".jld"
     path_jobdb = joinpath(path_root, name_jobdb)
 
     if isfile(path_jobdb)
