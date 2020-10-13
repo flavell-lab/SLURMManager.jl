@@ -1,7 +1,8 @@
 # SLURMManager.jl
+If you have not installed Julia on OpenMind, please check [OpenMind Julia](https://github.com/flavell-lab/FlavellLabWiki/wiki/OpenMind-Julia#installing-julia-on-openmind)
 
 ## Usage
-### 1. make a file for sbatch list  
+### 1. Make a file for sbatch list  
 This is a text file that lists the paths of .sh files (sbatch files) you'd like to run.
 
 Example `2020-10-12 sbatch manifest.txt`
@@ -11,7 +12,7 @@ Example `2020-10-12 sbatch manifest.txt`
 /path_to_script/sbatch3.sh
 /path_to_script/sbatch4.sh
 ```
-### 2. define an sbatch script to run the manager
+### 2. Define an sbatch script to run the manager
 Example `2020-10-12 sbatch submit.sh`
 ```bash
 #!/bin/bash
@@ -26,7 +27,9 @@ Example `2020-10-12 sbatch submit.sh`
 julia -e "using SLURMManager; submit_scripts("path_to_your_script_list/2020-10-12 sbatch manifest.txt")
 ```
 
-### 3. submit the manager sbatch script
+### 3. Submit the manager sbatch script
 ```bash
 sbatch 2020-10-12 sbatch submit.sh
 ```
+## Notification feature
+Doc TBD
