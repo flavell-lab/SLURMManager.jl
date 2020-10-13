@@ -34,7 +34,7 @@ sbatch 2020-10-12 sbatch submit.sh
 ```
 
 ### Note
-- max array size per sbatch script is 999
+- max array size per sbatch script is 999 (the max pending + running is 1000)
 - jobs will be submitted in the order defined in your script list file  
 - each time a job is succesfully submitted, it saves a log so that the same job won't be resubmitted (e.g. if the manager sbatch task is intruppted and requeued, it continues with previously unsubmitted jobs)
 
