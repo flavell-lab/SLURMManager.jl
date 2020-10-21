@@ -19,6 +19,7 @@ export SLURMJob,
     submit_scripts,
     submit_scripts!,
     squeue_n_pending,
-    squeue_n_running
+    squeue_n_running,
+    run_parse_int
 
 end # module
