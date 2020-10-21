@@ -13,7 +13,9 @@ Example `2020-10-12 sbatch manifest.txt`
 /path_to_script/sbatch4.sh
 ```
 ### 2. Define an sbatch script to run the manager
-Example `2020-10-12 sbatch submit.sh` (make sure to change `--job-name`, `--output` and the path to your script list file)  
+Example `2020-10-12 sbatch submit.sh` 
+ - make sure to change `--job-name`, `--output` and the path to your script list file)  
+ - adjust `--time` based on the number/duration of your jobs
 ```bash
 #!/bin/bash
 #SBATCH --job-name=yourjobname
