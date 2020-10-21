@@ -27,11 +27,11 @@ function squeue_n_running(user)
 end
 
 """
-    squeue_submit_sbatch(path_sh; priority="")
+    squeue_submit_sbatch(path_sh; partition="normal")
 
-Submits `path_sh` to the queue with given priority and returns the jobid
+Submits `path_sh` to the queue with given partition (default normal) and returns the jobid
 """
-function squeue_submit_sbatch(path_sh; priority="")
-    jobid = run_parse_int(pipeline(`sbatch $priority $path_sh`, `awk '{ print $4 }'`))
+function squeue_submit_sbatch(path_sh; partition="normal")
+    jobid = run_parse_int(pipeline(`sbatch --partition=$(partition) $path_sh`, `awk '{ print $4 }'`))
     return jobid
 end
