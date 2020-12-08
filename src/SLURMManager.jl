@@ -17,6 +17,9 @@ include("submit_loop.jl")
 export SLURMJob,
     # submit_loop.jl
     submit_scripts,
-    submit_scripts!
+    submit_scripts!,
+    squeue_n_pending,
+    squeue_n_running,
+    run_parse_int
 
 end # module

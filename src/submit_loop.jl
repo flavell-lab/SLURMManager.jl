@@ -1,4 +1,4 @@
-function submit_scripts(path_txt; verbose::Bool=true)
+function submit_scripts(path_txt; verbose::Bool=true, partition="normal")
     path_root = splitdir(path_txt)[1]
     name_jobdb = splitext(basename(path_txt))[1] * ".jld2"
     path_jobdb = joinpath(path_root, name_jobdb)
@@ -13,11 +13,11 @@ function submit_scripts(path_txt; verbose::Bool=true)
         end
     end
 
-    submit_scripts!(dict_jobs, path_jobdb=path_jobdb, verbose=verbose)
+    submit_scripts!(dict_jobs, path_jobdb=path_jobdb, verbose=verbose, partition=partition)
 end
 
 function submit_scripts!(dict_jobs::OrderedDict{String, SLURMJob};
-    path_jobdb::String, verbose::Bool=true)
+    path_jobdb::String, verbose::Bool=true, partition="normal")
     list_key_submit = []
     for (k_, v_) = dict_jobs
         if !v_.submitted
@@ -43,7 +43,7 @@ function submit_scripts!(dict_jobs::OrderedDict{String, SLURMJob};
 
             # try submitting the job
             try
-                jobid = squeue_submit_sbatch(job.path_sh)
+                jobid = squeue_submit_sbatch(job.path_sh, partition=partition)
                 job.jobid = jobid
                 job.submitted = true
                 q_submit_ok = true
