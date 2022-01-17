@@ -9,21 +9,40 @@ function run_parse_int(pipe)
 end
 
 """
-    squeue_n_pending(user)
+    squeue_n_pending(user::String)
 
 Get num of pending jobs
 """
-function squeue_n_pending(user)
+function squeue_n_pending(user::String)
     run_parse_int(pipeline(`squeue -u $user -h -r --start`, `wc -l`))
 end
 
 """
-    squeue_n_running(user)
+    squeue_n_pending(user)
+
+Get num of pending jobs
+"""
+function squeue_n_pending(jobid::Int)
+    run_parse_int(pipeline(`squeue --job $jobid -h -r --start`, `wc -l`))
+end
+
+
+"""
+    squeue_n_running(user::String)
 
 Get num of running jobs
 """
-function squeue_n_running(user)
+function squeue_n_running(user::String)
     run_parse_int(pipeline(`squeue -u $user --states RUNNING -h -r`, `wc -l`))
+end
+
+"""
+    squeue_n_running(jobid::Int)
+
+Get num of running jobs
+"""
+function squeue_n_running(jobid::Int)
+    run_parse_int(pipeline(`squeue --job $jobid --states RUNNING -h -r`, `wc -l`))
 end
 
 """
