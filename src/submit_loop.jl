@@ -48,14 +48,14 @@ function submit_scripts!(dict_jobs::OrderedDict{String, SLURMJob};
                 job.submitted = true
                 q_submit_ok = true
                 verbose &&
-                    println_dt("$(basename(job.path_sh)) submitted id=$jobid") && 
-                    flush(stdout)
+                    println_dt("$(basename(job.path_sh)) submitted id=$jobid")
+                flush(stdout)
             catch
                 # sbatch failed. trying again after waiting
                 n_attempt += 1
                 verbose &&
-                    println_dt("job submit failed. waiting $(TIME_RESUBMIT)s") && 
-                    flush(stdout)
+                    println_dt("job submit failed. waiting $(TIME_RESUBMIT)s") 
+                flush(stdout)
                 sleep(TIME_RESUBMIT)
             end
 
@@ -68,8 +68,8 @@ function submit_scripts!(dict_jobs::OrderedDict{String, SLURMJob};
         end
 
     end
-    verbose && println_dt("all jobs have been submitted.") && 
-        flush(stdout)
+    verbose && println_dt("all jobs have been submitted.") 
+    flush(stdout)
 
     nothing
 end
