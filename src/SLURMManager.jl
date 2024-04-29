@@ -6,7 +6,7 @@ USER = ENV["USER"]
 TIME_CHECK_EVERY = 600 # seconds
 TIME_RESUBMIT = 300 # seconds
 MAX_ATTEMPT = 10
-MAX_JOBS_IN_QUEUE = 1000
+MAX_JOBS_IN_QUEUE = 950
 
 include("job.jl")
 include("notf.jl")
